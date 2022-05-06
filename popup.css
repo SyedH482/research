@@ -12,11 +12,12 @@ body {
 }
 
 
-.adminLog {
-width: 10px;
-height: 10px;  
+#adminLog {
+width: 100px;
+height: 15px;  
 opacity: 0;
 }
+
 
 textarea {
   width: 500px;

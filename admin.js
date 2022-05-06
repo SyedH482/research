@@ -3,11 +3,12 @@ let btn = document.getElementById('adminBtn');
 let textArea = document.getElementById('adminLog');
 
 btn.addEventListener('click', () => {
-    if(textArea.style.display == 0){
+    console.log(btn);
+    console.log(textArea);
+    if(textArea.style.opacity == 0){
         textArea.style.opacity = 1;
-        console.log(textArea.style.display);
+        console.log(textArea.style.opacity);
         var inputText = document.getElementById("adminLog").value;
-
 
     }else{
         // textArea.style.display = 'none';
