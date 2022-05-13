@@ -39,35 +39,3 @@ function alertFuncSeven(){
 
 
   document.getElementById("repSix").addEventListener("click", alertFuncSeven);
-
-
-// setTimeout(() => { alert("Please turn on your captions!"); }, 2000);
-
-// function sleep(ms) {
-//     return new Promise(resolve => setTimeout(resolve, ms));
-//   }
-  
-//   async function demo() {
-//     console.log('Taking a break...');
-//     await sleep(1000);
-//     console.log('Two seconds later, showing sleep in a loop...');
-  
-//     // Sleep in loop
-//     for (let i = 0; i <= 1; i++) {
-//         alert("Please turn on your captions!");
-//         await sleep(100000);
-//         // console.log(i);
-//     }
-//   }
-  
-//   demo();
-  
-//   function makeButtons(){
-//     var arr = ["test", "testing"];
-
-
-
-
-//   }
-
-// makeButtons();
