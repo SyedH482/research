@@ -1,7 +1,14 @@
 var counter = 0;
 
 function alertFuncOne(){
-    alert("Please keep chatting in the window to a minimum. Classmates who are DHH may have trouble splitting their attention between the chat window and the classroom discussion");
+  chrome.notifications.create(
+    {
+      title: 'Reminder!',
+      message: 'Please keep chatting in the window to a minimum. Classmates who are DHH may have trouble splitting their attention between the chat window and the classroom discussion',
+      iconUrl: './images/get_started16.png',
+      type: 'basic',
+    }
+  )
 }
   document.getElementById("rep").addEventListener("click", alertFuncOne);
   

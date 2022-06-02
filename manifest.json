@@ -10,7 +10,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting", "downloads", "notifications"],
+  "permissions": ["storage", "activeTab", "scripting", "downloads", "notifications", "<all_urls>"],
   "commands": {
     "_execute_action": {
       "suggested_key": {

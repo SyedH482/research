@@ -4,39 +4,41 @@ function loadData(){
           // console.log(xhttp.responseText)
           // console.log(typeof xhttp.responseText);
           let modifiedString = xhttp.responseText;
-          let part = modifiedString.replace(/,/g, "\n").replace(/Yes/g,"\n").replace(/[0-9]/g, "").replace(/(\r\n|\n|\r)/gm,"").replace("DateRequires accessibility accommodationRequires captionsRequires session to be recordedRequires transcriptionAnything elseSpecific Requests","").replace(/\/\//g,"").replace("\"", "\n\n").replace(/(\.)/gm,"\.\n");
+          let partOne = modifiedString.replace(/,/g, "\n").replace(/Yes/g,"\n").replace(/[0-9]/g, "").replace(/(\r\n|\n|\r)/gm,"").replace("DateRequires accessibility accommodationRequires captionsRequires session to be recordedRequires transcriptionAnything elseSpecific Requests","").replace(/\/\//g,"").replace("\"", "\n\n").replace(/(\.)/gm,"\.\n");
           // let partOne = test.replace(/(\.)/gm,"\.\n");
           // part = part.split(".");
-          part = part.split("\n");
-          // console.log(test);
+          part = partOne.split("\n");
+          console.log(modifiedString);
           var testArr = [];
           var a = '<ul>';
           var b = '</ul>';
           var reportBtnn = document.createElement("button");
 
       if (this.readyState == 4 && this.status == 200) {
+        console.log("we are inside readyState")
          // Typical action to be performed when the document is ready:
-         for (let i = 0; i < part.length - 1; i++) {
+         for (let i = 0; i < part.length; i++) {
           // if (test[i] == "."){
           //   test[i] += "\n";
           // part.forEach(element => {
-            console.log(part[2]);
+            console.log(part[i] + "this is paty at index i");
             let btn = document.createElement("button");
             // btn.onclick = alertFunc;
-            btn.value= "Report";
-            btn.type = "report";
-            btn.name = "formBtn" + String(i);
+            btn.value= "Add";
+            btn.type = "Add";
+            btn.name = "Add" + String(i);
             console.log(btn.name);
             // btnHolder = document.body.appendChild(btn);
             // console.log(btnHolder);
           // // });
           //   testArr[i] = '<li>' + part[i] + '</li>';
             testArr[i] = document.createElement("li");
-            const textNode = document.createTextNode(part[i]);
+            var textNode = document.createTextNode(part[i]);
             testArr[i].appendChild(textNode);
             testArr[i].appendChild(btn);
-            const str = "<li>" + part[i] + " " + "<button id=btn-dyn-" + i + ">" + "Add" + "</button>" + "</li>";
+            var str = "<li>" + part[i] + " " + "<button text-align='right' class='fa fa-check' id=btn-dyn-" + i + ">" + "" + "</button>" + "<button text-align='right' class='fa fa-times' id=btn-dyn-ex" + i + " /li>";
             testArr[i] = str;
+            console.log(testArr[i] + " test arr" );
             // btnHolder[i].addEventListener("click", console.log("poe"));
             // testArr[i] = testArr[i].replaceAll(',', " ");
             // document.getElementById("rep").addEventListener("click", alertFuncOne);
@@ -51,10 +53,18 @@ function loadData(){
           for (let i = 0; i < part.length - 1; i += 1){
             document.getElementById("btn-dyn-" + i).addEventListener('click', function(){
               alert(part[i]);
+              var sheetData = part[i];
+              const j = document.createElement("form");
+              j.setAttribute('type', "text");
+              j.setAttribute('name',"test");
+              j.appendChild(document.createTextNode(sheetData));
+              document.body.appendChild(j);
+              console.log(j);
+              console.log(sheetData + "this is sheetdata");
             })
           }
         // }
-         console.log()
+         console.log(part[2] + " this is index 2");
         //  document.getElementById("display").innerHTML = part;
         //  alert(part);
          console.log("test");
@@ -68,6 +78,8 @@ function loadData(){
   }
 
   document.getElementsByClassName("data").addEventListener("click", loadData());
+
+  let interval = setInterval(loadData(), 5000);
 
   /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
