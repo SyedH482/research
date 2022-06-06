@@ -1,14 +1,17 @@
 function loadData(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
+          // var modifiedString = "";
           // console.log(xhttp.responseText)
           // console.log(typeof xhttp.responseText);
-          let modifiedString = xhttp.responseText;
-          let partOne = modifiedString.replace(/,/g, "\n").replace(/Yes/g,"\n").replace(/[0-9]/g, "").replace(/(\r\n|\n|\r)/gm,"").replace("DateRequires accessibility accommodationRequires captionsRequires session to be recordedRequires transcriptionAnything elseSpecific Requests","").replace(/\/\//g,"").replace("\"", "\n\n").replace(/(\.)/gm,"\.\n");
-          // let partOne = test.replace(/(\.)/gm,"\.\n");
+          var modifiedString = xhttp.responseText;
+          console.log(modifiedString + "modified string");
+          let partOne = modifiedString.replace(/,/g, "\\n").replace(/Yes/g,"").replace(/[0-9]/g, "").replace(/(\r\n|\n|\r)/gm,"").replace("Date","").replace("Requires accessibility accommodation", "").replace("Requires captions", "").replace("Requires session to be recorded", "").replace("Requires session to be recorded", "").replace("Requires transcription", "").replace("Anything else", "").replace("Specific Requests", "").replace(/\/\//g,"").replace("\"", "\n\n").replace(/(\.)/gm,"\.\n");
+          // let partTwo = partOne.replace(/(\.)/gm,"\.\\n");
           // part = part.split(".");
-          part = partOne.split("\n");
-          console.log(modifiedString);
+          part = partOne.split("\\n");
+          // part = partOne;
+          console.log(part + "part");
           var testArr = [];
           var a = '<ul>';
           var b = '</ul>';
@@ -21,7 +24,6 @@ function loadData(){
           // if (test[i] == "."){
           //   test[i] += "\n";
           // part.forEach(element => {
-            console.log(part[i] + "this is paty at index i");
             let btn = document.createElement("button");
             // btn.onclick = alertFunc;
             btn.value= "Add";
@@ -36,13 +38,12 @@ function loadData(){
             var textNode = document.createTextNode(part[i]);
             testArr[i].appendChild(textNode);
             testArr[i].appendChild(btn);
-            var str = "<li>" + part[i] + " " + "<button text-align='right' class='fa fa-check' id=btn-dyn-" + i + ">" + "" + "</button>" + "<button text-align='right' class='fa fa-times' id=btn-dyn-ex" + i + " /li>";
+            console.log(part[i] + "this is part i");
+            var str = "<li>" + part[i] + " " + "<button text-align='right' class='fa fa-check' id=btn-dyn-" + i + ">" + "" + "</button>" + "<button text-align='right' class='fa fa-times' id=btn-dyn-ex" + i + ">" + "</button>" +  " </li>";
             testArr[i] = str;
-            console.log(testArr[i] + " test arr" );
             // btnHolder[i].addEventListener("click", console.log("poe"));
             // testArr[i] = testArr[i].replaceAll(',', " ");
             // document.getElementById("rep").addEventListener("click", alertFuncOne);
-            console.log(testArr[i]);
             // reportBtnn.innerHTML = "Report";
           }
           // testArrStr = testArr.toString();

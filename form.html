@@ -5,7 +5,7 @@
     <nav>
     <a href="popup.html">Etiquette Guide</a>
     <a href="form.html" class="active">Accessibility Needs Form</a>
-    <a id= "adminPage" class="adminPage" href="admin.html">Admin Page</a>
+    <a id= "adminPage" class="adminPage" href="admin.html" onclick="loadData()">Admin Page</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>
@@ -41,8 +41,8 @@
             <textarea id="message" name="Anything else" rows="10"
             placeholder=""></textarea>
             </fieldset>
-          <button class="button-success pure-button button-xlarge" onclick="loadData()">
-            <i class="fa fa-paper-plane"></i>&nbsp;Submit</button>
+          <button class="button-success pure-button button-xlarge">
+            <i class="fa fa-paper-plane" id="submitBtn"></i>&nbsp;Submit</button>
             <button id="adminBtn">Admin Login</button>
             <textarea id="adminLog"></textarea>
             <!-- <div id="display"></div> -->
